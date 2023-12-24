@@ -163,7 +163,7 @@ namespace MiniApiProject
                 dbContext.Add(newPerson);
                 dbContext.SaveChanges();
 
-                // Manually associate Link_Interest entities
+                //  associate Link and interest
                 foreach (var interestPerson in newPerson.Interest_Persons)
                 {
                     foreach (var linkPerson in newPerson.Link_Persons)
