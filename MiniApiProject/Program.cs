@@ -203,7 +203,7 @@ namespace MiniApiProject
                     return Results.NotFound($"Interest with ID {interestId} not found for person with ID {personId}.");
                 }
                
-                // Add links to the specific interest 
+           
                 foreach (var link in links)
                 {
                     dbContext.Link_Interests.Add(new Link_Interest
