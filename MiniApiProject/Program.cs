@@ -42,7 +42,7 @@ namespace MiniApiProject
 
 
 
-                return Results.Ok(result);
+                return Results.Json(result);
 
             });
 
@@ -73,7 +73,7 @@ namespace MiniApiProject
                     Interests = person.Interest_Persons.Select(pi => new { pi.Interest.InterestId, pi.Interest.Titel, pi.Interest.Description }).ToList(),
                     Links = person.Link_Persons.Select(lp => new { lp.Link.LinkId, lp.Link.Url }).ToList(),
                 };
-                return Results.Ok(result);
+                return Results.Json(result);
             });
 
             //get interests related to a specific person
@@ -101,7 +101,7 @@ namespace MiniApiProject
 
                 };
 
-                return Results.Ok(result);
+                return Results.Json(result);
 
 
             });
@@ -130,7 +130,7 @@ namespace MiniApiProject
 
                 };
 
-                return Results.Ok(result);
+                return Results.Json(result);
 
 
             });
@@ -178,7 +178,7 @@ namespace MiniApiProject
 
                 dbContext.SaveChanges();
 
-                return Results.Ok($"New person with {newPerson.PersonId} created.");
+                return Results.Json($"New person with {newPerson.PersonId} created.");
             });
 
 
@@ -215,7 +215,7 @@ namespace MiniApiProject
 
                 dbContext.SaveChanges();
 
-                return Results.Ok($"New links added to interest {interestId} for person with ID {personId}.");
+                return Results.Json($"New links added to interest {interestId} for person with ID {personId}.");
             });
 
 
@@ -250,7 +250,7 @@ namespace MiniApiProject
 
                 dbContext.SaveChanges();
 
-                return Results.Ok($"New interests added to person with ID {personId}.");
+                return Results.Json($"New interests added to person with ID {personId}.");
             });
 
             //delete all information of a specific person
@@ -275,6 +275,7 @@ namespace MiniApiProject
 
                
                 dbContext.Interest_Persons.RemoveRange(existingPerson.Interest_Persons);
+                    
 
               
                 dbContext.Link_Persons.RemoveRange(existingPerson.Link_Persons);
@@ -284,7 +285,7 @@ namespace MiniApiProject
 
                 dbContext.SaveChanges();
 
-                return Results.Ok($"Person with ID {personId} and related data deleted.");
+                return Results.Json($"Person with ID {personId} and related data deleted.");
             });
 
 
