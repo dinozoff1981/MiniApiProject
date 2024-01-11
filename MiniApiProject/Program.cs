@@ -275,6 +275,7 @@ namespace MiniApiProject
 
                
                 dbContext.Interest_Persons.RemoveRange(existingPerson.Interest_Persons);
+                    
 
               
                 dbContext.Link_Persons.RemoveRange(existingPerson.Link_Persons);
