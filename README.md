@@ -2,9 +2,8 @@ MiniApiProject
 
 MiniApiProject is a simple ASP.NET Core Minimal API project that provides endpoints to manage information about people, their interests, and links. The project uses Entity Framework Core to interact with a SQL Server database.
 
-Getting Started
 
-1. Clone the Repository
+Clone the Repository
 
    bash
    git clone https://github.com/dinozoff1981/MiniApiProject.git
