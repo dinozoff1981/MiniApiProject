@@ -17,6 +17,8 @@ ER Diagram
 
 UML Diagram
 
+![UML Diagram](https://github.com/dinozoff1981/MiniApiProject/assets/51277761/45edad78-92d2-4ac5-87ed-0fdd8d9e1e4c)
+
 Endpoints
 1. Get All People
 Endpoint: /api/getall
