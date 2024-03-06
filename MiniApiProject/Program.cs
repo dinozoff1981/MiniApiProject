@@ -140,14 +140,14 @@ namespace MiniApiProject
 
             {
 
-                var persons = dbcontext.Interests
+                var intrest = dbcontext.Interests
                 
                 .Include(p => p.Link_Interests)
                 .ThenInclude(p => p.Link)
                 .Where(p => p.InterestId == intrestid)
                 .SingleOrDefault();
 
-                if (persons == null)
+                if (intrest == null)
                 {
                     return Results.NotFound($"Intrest with ID:{intrestid} NotFound");
                 }
@@ -156,8 +156,8 @@ namespace MiniApiProject
                 {
 
                   
-                    Interest = persons.Interest_Persons.Select(pi => new { pi.Interest.Description, pi.Interest.Titel}).ToList(),
-                    Link = persons.Link_Interests.Select(pi => new {pi.Link.Url}).ToList(), 
+                    Interest = intrest.Interest_Persons.Select(pi => new { pi.Interest.Description, pi.Interest.Titel}).ToList(),
+                    Link = intrest.Link_Interests.Select(pi => new {pi.Link.Url}).ToList(), 
 
                 };
 
