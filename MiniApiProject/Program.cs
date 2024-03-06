@@ -134,6 +134,37 @@ namespace MiniApiProject
 
 
             });
+            // get the link for a specific interst 
+
+            app.MapGet("/api/getlink_intrest/{intrestid}", (int intrestid, MiniApiContext dbcontext) =>
+
+            {
+
+                var persons = dbcontext.Interests
+                
+                .Include(p => p.Link_Interests)
+                .ThenInclude(p => p.Link)
+                .Where(p => p.InterestId == intrestid)
+                .SingleOrDefault();
+
+                if (persons == null)
+                {
+                    return Results.NotFound($"Intrest with ID:{intrestid} NotFound");
+                }
+
+                var result = new
+                {
+
+                  
+                    Interest = persons.Interest_Persons.Select(pi => new { pi.Interest.Description, pi.Interest.Titel}).ToList(),
+                    Link = persons.Link_Interests.Select(pi => new {pi.Link.Url}).ToList(), 
+
+                };
+
+                return Results.Json(result);
+
+
+            });
 
             //create a new person
             app.MapPost("/api/createperson", (MiniApiContext dbContext, Person person) =>
